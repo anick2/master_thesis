@@ -1,13 +1,7 @@
 # master_thesis
 Репозиторий для работы в рамках магистерской диссертации
 
-- [ ] Mercury
-    - [ ] 
+- [ ] Найти датасеты:
+    - [x] Уже размеченные датасеты 
+    - [ ] Разметить свой с помощью Толоки
 - [x] Venus
-- [x] Earth (Orbit/Moon)
-- [x] Mars
-- [ ] Jupiter
-- [ ] Saturn
-- [ ] Uranus
-- [ ] Neptune
-- [ ] Comet Haley
