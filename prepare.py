@@ -38,7 +38,6 @@ def read_amazon_format(path: str, column_name: str, num_review=None, remove_stop
                                             for s in tokenized_sentences]
 
                 lemmatized_sentences = [sent for sent in lemmatized_sentences if sent != []]
-                print(lemmatized_sentences)
 
                 for sentence in lemmatized_sentences:
                     wf.write(" ".join(sentence) + "\n" if sentence else " ")
