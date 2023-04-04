@@ -24,17 +24,7 @@ def main():
     logger.debug(str(model))
 
     criterion = torch.nn.MSELoss(reduction="sum")
-
-    if cfg.optimizer == "adam":
-        optimizer = torch.optim.Adam(model.parameters())
-    elif cfg.optimizer == "sgd":
-        optimizer = torch.optim.SGD(model.parameters(), lr=0.05)
-    elif cfg.optimizer == "adagrad":
-        optimizer = torch.optim.Adagrad(model.parameters())
-    elif cfg.optimizer == "asgd":
-        optimizer = torch.optim.ASGD(model.parameters(), lr=0.05)
-    else:
-        raise Exception("Optimizer '%s' is not supported" % cfg.optimizer.name)
+    optimizer = torch.optim.Adam(model.parameters())
 
     for t in range(cfg.epochs):
 
