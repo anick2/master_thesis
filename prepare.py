@@ -4,6 +4,7 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from tqdm import tqdm
 from pymorphy2 import MorphAnalyzer
 from nltk.corpus import stopwords
+from langdetect import detect
 
 
 stopwords_ru = stopwords.words("russian")
@@ -26,8 +27,7 @@ def read_amazon_format(path: str, column_name: str, num_review=None, remove_stop
             reviews = list(json.loads(line.strip())[column_name].values())
             num_review = len(reviews) if num_review is None or num_review >= len(reviews) else num_review
 
-            for text in tqdm(reviews[0:num_review]):
-                sentences = sent_tokenize(text)
+
                 tokenized_sentences = [word_tokenize(sentence) for sentence in sentences if len(sentence.split()) >= 2]
 
                 if remove_stop_words:

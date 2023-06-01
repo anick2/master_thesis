@@ -53,19 +53,19 @@ def main():
             loss.backward()
             optimizer.step()
 
-            if item_number % cfg.log_progress_steps == 0:
+            if item_number % 100 == 0:
 
-                logger.info("%d batches, and LR: %.5f" % (item_number, optimizer.param_groups[0]['lr']))
+                print("%d batches, and LR: %.5f" % (item_number, optimizer.param_groups[0]['lr']))
 
                 for i, aspect in enumerate(model.get_aspect_words(w2v_model, logger)):
-                    logger.info("[%d] %s" % (i + 1, " ".join([a for a in aspect])))
+                    print("[%d] %s" % (i + 1, " ".join([a for a in aspect])))
 
-                logger.info("Loss: %.4f" % loss.item())
+                print("Loss: %.4f" % loss.item())
 
                 try:
                     torch.save(model, f"abae_%.2f_%06d.bin" % (loss.item(), item_number))
                 except Exception as e:
-                    logger.exception("Model saving failed.")
+                    print("Model saving failed.")
 
 
 if __name__ == "__main__":

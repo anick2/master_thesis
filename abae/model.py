@@ -128,7 +128,7 @@ class ABAE(torch.nn.Module):
             torch.matmul(self.aspects_embeddings.t(), self.aspects_embeddings) \
             - torch.eye(self.asp_count))
 
-    def get_aspect_words(self, w2v_model, logger, topn=15):
+    def get_aspect_words(self, w2v_model, logger, topn=50):
         words = []
 
         # getting aspects embeddings

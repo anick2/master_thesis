@@ -13,7 +13,7 @@ def read_data_batches(path: str, batch_size: int=50, minlength: int=5):
     batch = []
 
     for line in open(path, encoding="utf-8"):
-        line = line.strip().split()
+        line = line.strip().lower().split()
 
         # lines with less than `minlength` words are omitted
         if len(line) >= minlength:
